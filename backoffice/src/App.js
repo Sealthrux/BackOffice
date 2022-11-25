@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import MySideNav from './components/MySideNav';
+import SideNav from './components/SideNav';
+import NavBar from './components/NavBar';
 
 
 function App() {
 
   return (
     <div>
-      <MySideNav/>
+      <NavBar/>
+      <SideNav/>
     </div>
   );
 }

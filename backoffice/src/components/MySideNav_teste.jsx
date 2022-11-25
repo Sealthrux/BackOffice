@@ -12,11 +12,11 @@ function MySideNav() {
         <SideNav.Toggle/>
         <SideNav.Nav defaultSelected="home">
             <NavItem eventKey="dashboard">
-                <NavIcon><i className="fa fa-fw  fa-home" style={{fontSize:"1,5em"}}></i></NavIcon>
+                <NavIcon><i className="fa fa-fw fa-home" style={{fontSize:"1,5em"}}></i></NavIcon>
                 <NavText>Dashboard</NavText>
             </NavItem>
             <NavItem eventKey="utilizadores">
-                <NavIcon className="fa fa-fw fa-solid fa-user" ><i style={{fontSize:"1,5em"}}></i></NavIcon>
+                <NavIcon className="fa fa-fw fa-home" ><i style={{fontSize:"1,5em"}}></i></NavIcon>
                 <NavText>Utilizadores</NavText>
             </NavItem>
             <NavItem eventKey="pontos de interesse">
