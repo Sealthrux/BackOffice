@@ -24,18 +24,15 @@ app.use((req, res, next) => {
 
 // importação de rotas [1]
 const dashboardRoutes = require("./routes/dashboard_routes");
-const clienteRoutes = require("./routes/cliente_routes");
-const compraRoutes = require("./routes/compra_routes");
-const contemRoutes = require("./routes/contem_routes");
-const formularioRoutes = require("./routes/formulario_routes");
-const historicoRoutes = require("./routes/historico_routes");
-const packsRoutes = require("./routes/packs_routes");
-const possuiRoutes = require("./routes/possui_routes");
-const servicosRoutes = require("./routes/servicos_routes");
-const tipoPacksRoutes = require("./routes/tipo_pack_routes");
-const tipoTrabalhadoresRoutes = require("./routes/tipo_trabalhadores_routes");
-const trabalhaRoutes = require("./routes/trabalha_routes");
-const trabalhadoresRoutes = require("./routes/trabalhadores_routes");
+const utilizadoresRoutes = require("./routes/utilizadores_routes");
+const pontosRoutes = require("./routes/pontos_routes");
+const regiaosRoutes = require("./routes/regiao_routes");
+const atividadesRoutes = require("./routes/atividades_routes");
+const reservasRoutes = require("./routes/resevas_routes");
+const recompensasRoutes = require("./routes/recompensas_routes");
+const voucherRoutes = require("./routes/Voucher_routes");
+
+
 
 //Login
 const administradorRoutes = require("./routes/administrador_routes");
@@ -44,18 +41,15 @@ app.use('/admin', administradorRoutes);
 
 //Rota
 app.use('/dashboard', dashboardRoutes);
-app.use('/cliente', clienteRoutes);
-app.use('/compra', compraRoutes);
-app.use('/contem', contemRoutes);
-app.use('/formulario', formularioRoutes);
-app.use('/historico', historicoRoutes);
-app.use('/packs', packsRoutes);
-app.use('/possui', possuiRoutes);
-app.use('/servico', servicosRoutes);
-app.use('/tipoPacks', tipoPacksRoutes);
-app.use('/tipoTrabalhadores', tipoTrabalhadoresRoutes);
-app.use('/trabalha', trabalhaRoutes);
-app.use('/trabalhadores', trabalhadoresRoutes);
+app.use('/utilizadores', utilizadoresRoutes);
+app.use('/pontos', pontosRoutes);
+app.use('/regiao', regiaosRoutes);
+app.use('/atividades', atividadesRoutes);
+app.use('/reservas', reservasRoutes);
+app.use('/recompensas', recompensasRoutes);
+app.use('/vouchers', voucherRoutes);
+
+
 
 //Rotas
 app.use("/teste", (req, res) => {
