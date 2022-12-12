@@ -24,18 +24,8 @@ app.use((req, res, next) => {
 
 // importação de rotas [1]
 const dashboardRoutes = require("./routes/dashboard_routes");
-const clienteRoutes = require("./routes/cliente_routes");
+const utilizdoresRoutes = require("./routes/utilizador_routes");
 const compraRoutes = require("./routes/compra_routes");
-const contemRoutes = require("./routes/contem_routes");
-const formularioRoutes = require("./routes/formulario_routes");
-const historicoRoutes = require("./routes/historico_routes");
-const packsRoutes = require("./routes/packs_routes");
-const possuiRoutes = require("./routes/possui_routes");
-const servicosRoutes = require("./routes/servicos_routes");
-const tipoPacksRoutes = require("./routes/tipo_pack_routes");
-const tipoTrabalhadoresRoutes = require("./routes/tipo_trabalhadores_routes");
-const trabalhaRoutes = require("./routes/trabalha_routes");
-const trabalhadoresRoutes = require("./routes/trabalhadores_routes");
 
 //Login
 const administradorRoutes = require("./routes/administrador_routes");
@@ -44,7 +34,7 @@ app.use('/admin', administradorRoutes);
 
 //Rota
 app.use('/dashboard', dashboardRoutes);
-app.use('/cliente', clienteRoutes);
+app.use('/utilizador', utilizdoresRoutes);
 app.use('/compra', compraRoutes);
 app.use('/contem', contemRoutes);
 app.use('/formulario', formularioRoutes);
