@@ -35,8 +35,8 @@ const voucherRoutes = require("./routes/Voucher_routes");
 
 
 //Login
-const loginRoutes = require("./routes/administrador_routes");
-app.use('/admin', loginRoutes);
+const loginRoutes = require("./routes/login_routes");
+app.use('/login', loginRoutes);
 //
 
 //Rota

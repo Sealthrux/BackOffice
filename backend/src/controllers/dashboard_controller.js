@@ -1,6 +1,6 @@
 var sequelize = require("../models/database");
 const trabalhadores = require("../models/trabalhadores_model");
-const cliente = require("../models/cliente_model");
+const cliente = require("../models/utilizadores_model");
 const compra = require("../models/compra_model");
 var controllers = {};
 sequelize.sync();

@@ -1,8 +1,8 @@
 var Sequelize = require("sequelize");
 const sequelize = require("./database");
 
-var cliente = sequelize.define(
-  "cliente",
+var utilizadores = sequelize.define(
+  "user",
   {
     idcliente: {
       type: Sequelize.INTEGER,

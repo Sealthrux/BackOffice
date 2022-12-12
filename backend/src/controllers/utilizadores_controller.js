@@ -1,4 +1,4 @@
-const cliente = require("../models/cliente_model");
+const utilizadores = require("../models/utilizadores_model");
 var sequelize = require("../models/database");
 var controllers = {};
 sequelize.sync();
