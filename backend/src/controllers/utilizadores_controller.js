@@ -1,10 +1,10 @@
-const utilizadores = require("../models/utilizadores_model");
+const utilizador = require("../models/utilizadores_model");
 var sequelize = require("../models/database");
 var controllers = {};
 sequelize.sync();
 
 controllers.list = async (req, res) => {
-  const data = await cliente.findAll()
+  const data = await utilizador.findAll()
     .then(function (data) {
       return data;
     })
@@ -20,7 +20,7 @@ controllers.create = async (req, res) => {
   const { nome, email } =
     req.body;
   // create
-  const data = await cliente
+  const data = await utilizador
     .create({
 
       nome: nome,
@@ -43,9 +43,9 @@ controllers.create = async (req, res) => {
 
 /* BUSCAR para EDITAR */
 controllers.get = async (req, res) => {
-  const idcliente = req.params;
-  const data = await cliente.findOne({
-    where: { idcliente: idcliente },
+  const idutilizador = req.params;
+  const data = await utilizador.findOne({
+    where: { idutilizador: idutilizador },
   })
     .then(function (data) {
       return data;
@@ -59,17 +59,17 @@ controllers.get = async (req, res) => {
 /* EDITAR --------------------------------------------------- */
 controllers.update = async (req, res) => {
   // parameter get id
-  const { idcliente } = req.params;
+  const { idutilizador } = req.params;
   // parameter POST
   const { nome, email } = req.body;
   // Update data
-  const data = await cliente.update(
+  const data = await utilizador.update(
     {
       nome: nome,
       email: email,
     },
     {
-      where: { idcliente: idcliente },
+      where: { idutilizador: idutilizador },
     }
   )
     .then(function (data) {
@@ -83,10 +83,10 @@ controllers.update = async (req, res) => {
 
 controllers.delete = async (req, res) => {
   // parâmetros por post
-  const { idcliente } = req.body;
+  const { idutilizador } = req.body;
   // delete por sequelize
-  const del = await cliente.destroy({
-    where: { idcliente: idcliente }
+  const del = await utilizador.destroy({
+    where: { idutilizador: idutilizador }
   })
   res.json({ success: true, deleted: del, message: "Deleted successful" });
 }

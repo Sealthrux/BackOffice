@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 //importer os controladores
-const utilizadoresController = require('../controllers/cliente_controller');
-router.get('/list', clienteController.list);
-router.post('/create', clienteController.create);
-router.get('/get/:idcliente', clienteController.get);
-router.put('/update/:idcliente', clienteController.update);
-router.post('/delete', clienteController.delete);
+const utilizadorController = require('../controllers/utilizadores_controller.js');
+router.get('/list', utilizadorController.list);
+router.post('/create', utilizadorController.create);
+router.get('/get/:idutilizador', utilizadorController.get);
+router.put('/update/:idutilizador', utilizadorController.update);
+router.post('/delete', utilizadorController.delete);
 router.get('/save', (req, res) => {
   res.json({ status: 'User Saved' });
 });
