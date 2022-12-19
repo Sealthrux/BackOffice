@@ -2,8 +2,11 @@ import './App.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+import reservasList from "./components/reservasList";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import AuthService from "./view/auth.service";
+
+ {/*  import AuthService from "./view/auth.service";
 
 import Index from './view/index';
 
@@ -21,7 +24,9 @@ import voucherEdit from "./components/voucherEdit";
 
 import recompensasList from "./components/recompensasList";
 import recompensasAdd from "./components/recompensasAdd";
-import recompensasEdit from "./components/recompensasEdit";
+import recompensasEdit from "./components/recompensasEdit";*/}
+
+
 
 function App() {
   return (
@@ -29,6 +34,8 @@ function App() {
       <div className="App">
           <div className="row">
             <Routes>
+            <Route path="/reservasList" element={<reservasList />} />
+              {/* 
               <Route path="/" element={<Index />} />
 
               <Route path="/dashboard" element={<Dashboard />} />
@@ -48,7 +55,7 @@ function App() {
 
               <Route path="/recompensasList" element={<recompensasList />} />
               <Route path="/recompensasAdd" element={<recompensasAdd />} />
-              <Route path="/recompensasEdit/:idrecompensas" element={<recompensasEdit />} />
+              <Route path="/recompensasEdit/:idrecompensas" element={<recompensasEdit />} /> */}
             </Routes>
           </div>
       </div>
