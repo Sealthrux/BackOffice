@@ -1,0 +1,57 @@
+/* ==> NÃO TROCAR AS ORDENS DOS CODIGOS CSS POR CAUSA DE UM CODIGO IR SOBREPOR A OUTRO <== */
+
+/*Teve de ser por causa de mudar a cor de fundo ao button que nao estava a dar com o bootstrap*/
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.button-caseiro{
+	border-radius:10%;
+    text-decoration:none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    opacity: 0.6;
+    transition: 0.3s;
+    background-color: white;
+    
+}
+
+/*Cores*/
+
+.bg-light-pink{
+    background: #C9A9E8;
+}
+.underline-light-pink{
+    text-decoration: underline #C9A9E8ed;
+}
+
+.bg-dark-pink{
+    background: #A46DAE;
+}
+.text-dark-pink{
+    color: #A46DAE;
+}
+.border-dark-pink{
+    border: 2px solid #A46DAE;
+}
+
+.bg-light-yellow{
+    background: #FFCC00;
+}
+.bg-dark-yellow{
+    background: #DEB200;
+}
+
+
+
+/*Animações*/
+
+.button-caseiro:hover{
+    opacity: 1
+}
