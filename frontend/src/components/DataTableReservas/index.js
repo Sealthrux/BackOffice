@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import {Table} from "antd";
+import {Table, Popconfirm, Button} from "antd";
 
 const DataTable = () =>{
     const[gridData, setGridData] = useState([]);
@@ -18,6 +18,10 @@ const DataTable = () =>{
         setGridData(response.data);
         setLoading(false);
     };
+
+    const handleDelete = (value) => {
+        
+    }
 
     console.log("gridData", gridData);
 
@@ -51,6 +55,21 @@ const DataTable = () =>{
         align:"center",
         editable: true
     },
+    {
+        title:"Actions",
+        dataIndex:"actions",
+        align:"center",
+        render:(_, record) =>
+        modifiedData.length >=1 (
+            <Popconfirm
+            title="Sure to delete"
+            onConfirm={()=> handleDelete(record)}>
+                <Button type="primary" danger>
+                    Delete
+                </Button>
+            </Popconfirm>
+        )
+    }
 ];
 
     console.log("modifiedData", modifiedData);
