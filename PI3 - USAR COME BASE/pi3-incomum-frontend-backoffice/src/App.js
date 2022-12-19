@@ -44,10 +44,26 @@ function App() {
         
           <div className="row">
             <Routes>
-              <Route path="/" element={<ServicosList />} />
-            
+              <Route path="/" element={<Index />} />
+              <Route path="/perfil" element={<Perfil />} />
+
+              <Route path="/dashboard" element={<Dashboard />} />
+
+              <Route path="/clientesList" element={<ClientesList />} />
+              <Route path="/clientesForm" element={<ClienteForm />} />
+              <Route path="/clientesEdit/:idCliente" element={<ClienteEdit />} />
+
+              <Route path="/trabalhadoresList" element={<TrabalhadoresList />} />
+              <Route path="/trabalhadoresForm" element={<TrabalhadoresForm />} />
+              <Route path="/trabalhadoresEdit/:idTrabalhador" element={<TrabalhadoresEdit />} />
+
+ 
+              <Route path="/packsList" element={<PacksList />} />
+              <Route path="/packsForm" element={<PacksForm />} />
+              <Route path="/packsEdit/:idPack" element={<PacksEdit />} />
 
               <Route path="/servicosList" element={<ServicosList />} />
+
 
             </Routes>
           </div>
