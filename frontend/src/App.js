@@ -1,15 +1,14 @@
 import './App.css';
 import Navbar from "./components/Navbar";
 import SideNav from "./components/SideNav";
-import DataTable from './components/DataTableReservas';
+import Reservas from './components/Reservas';
 
 
 
 function App() {
   return (
     <div className='App'>
-      <Navbar></Navbar>
-      <SideNav></SideNav>
+      <Reservas></Reservas>
     </div>
   );
 }
