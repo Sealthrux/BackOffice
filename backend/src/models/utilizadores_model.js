@@ -33,4 +33,4 @@ var utilizadores = sequelize.define(
   }
 );
 
-module.exports = cliente;
+module.exports = utilizadores;
