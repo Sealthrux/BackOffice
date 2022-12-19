@@ -63,13 +63,7 @@ function App() {
               <Route path="/packsEdit/:idPack" element={<PacksEdit />} />
 
               <Route path="/servicosList" element={<ServicosList />} />
-              <Route path="/servicosForm" element={<ServicoForm />} />
-              <Route path="/servicosEdit/:idServicos" element={<ServicosEdit />} />
 
-              <Route path="/formulariosList" element={<FormulariosList />} />
-              <Route path="/formularioSelect/:idFormulario" element={<FormularioSelect />} />
-
-              <Route path="/teste" element={<Dropdown />} />
 
             </Routes>
           </div>
