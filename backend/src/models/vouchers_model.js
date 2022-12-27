@@ -1,29 +1,49 @@
 var Sequelize = require("sequelize");
 const sequelize = require("./database");
 
-var packs = sequelize.define(
-  "packs",
+var vouchers = sequelize.define(
+  "vouchers",
   {
-    idpack: {
+    V_ID: {
       type: Sequelize.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true
     },
-    idtipo: {
+    Recompensa_ID: {
       type: Sequelize.INTEGER,
       allowNull: false,
       references: {
-        model: 'tipo_pack',
-        key: 'idtipo'
+        model: 'recompensas',
+        key: 'Recompensa_ID'
       }
     },
-    nome: {
+    PontosInteresse_ID: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Pontos_Interesse',
+        key: 'PontosInteresse_ID'
+      }
+    },
+    V_titulo: {
+      type: Sequelize.STRING(250),
+      allowNull: false
+    },
+    V_Descricao: {
       type: Sequelize.STRING(250),
       allowNull: true
     },
-    preco: {
-      type: Sequelize.DECIMAL,
+    V_Custo: {
+      type: Sequelize.INTEGER,
+      allowNull: true
+    },
+    V_QRCode: {
+      type: Sequelize.BLOB('long'),
+      allowNull: true
+    },
+    V_Validade: {
+      type: Sequelize.DATE,
       allowNull: true
     }
   },
@@ -33,4 +53,4 @@ var packs = sequelize.define(
   }
 );
 
-module.exports = packs;
+module.exports = vouchers;

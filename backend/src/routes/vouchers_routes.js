@@ -5,16 +5,13 @@ const router = express.Router();
 const vouchersController = require('../controllers/vouchers_controller');
 router.get('/list', vouchersController.list);
 router.post('/create', vouchersController.create);
-router.get('/get/:idpack', vouchersController.get);
-router.put('/update/:idpack', vouchersController.update);
-router.delete('/delete/:idpack', vouchersController.delete);
+router.get('/get/:idvoucher', vouchersController.get);
+router.put('/update/:idvoucher', vouchersController.update);
+router.delete('/delete/:idvoucher', vouchersController.delete);
 router.get('/save', (req, res) => {
   res.json({ status: 'vouchers Saved' });
 });
 
-router.get('/listMarktingDigital', vouchersController.listMarktingDigital);
-router.get('/listDesignGrafico', vouchersController.listDesignGrafico);
-router.get('/listWebsitesELojasOnline', vouchersController.listWebsitesELojasOnline);
-router.get('/listComunicacaoEConsultoria', vouchersController.listComunicacaoEConsultoria);
+router.get('/listVouchers', vouchersController.listVouchers);
 
 module.exports = router;

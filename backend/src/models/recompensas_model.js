@@ -1,30 +1,22 @@
 var Sequelize = require("sequelize");
 const sequelize = require("./database");
 
-var packs = sequelize.define(
-  "packs",
+var recompensas = sequelize.define(
+  "recompensas",
   {
-    idpack: {
+    Recompensa_ID: {
       type: Sequelize.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
-    idtipo: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'tipo_pack',
-        key: 'idtipo'
-      }
-    },
-    nome: {
+    Rec_Desc: {
       type: Sequelize.STRING(250),
-      allowNull: true
+      allowNull: false,
     },
-    preco: {
-      type: Sequelize.DECIMAL,
-      allowNull: true
+    V_Titulo: {
+      type: Sequelize.STRING(250),
+      allowNull: true,
     }
   },
   {
@@ -33,4 +25,4 @@ var packs = sequelize.define(
   }
 );
 
-module.exports = packs;
+module.exports = recompensas;

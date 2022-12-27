@@ -1,10 +1,10 @@
-const packs = require("../models/packs_model");
+const vouchers = require("../models/vouchers_model");
 var sequelize = require("../models/database");
 var controllers = {};
 sequelize.sync();
 
 controllers.list = async (req, res) => {
-  const data = await packs.findAll()
+  const data = await vouchers.findAll()
     .then(function (data) {
       return data;
     })
@@ -20,11 +20,15 @@ controllers.create = async (req, res) => {
   const { idtipo, nome, preco } =
     req.body;
   // create
-  const data = await packs
+  const data = await vouchers
     .create({
-      idtipo: idtipo,
-      nome: nome,
-      preco: preco,
+      Recompensa_ID: Recompensa_ID,
+      PontosInteresse_ID: PontosInteresse_ID,
+      V_titulo: V_titulo,
+      V_Descricao: V_Descricao,
+      V_Custo: V_Custo,
+      V_QRCode: V_QRCode,
+      V_Validade: V_Validade,
     })
     .then(function (data) {
       return data;
@@ -43,9 +47,9 @@ controllers.create = async (req, res) => {
 
 /* BUSCAR para EDITAR */
 controllers.get = async (req, res) => {
-  const {idpack} = req.params;
-  const data = await packs.findOne({
-    where: { idpack: idpack },
+  const {V_ID} = req.params;
+  const data = await vouchers.findOne({
+    where: { V_ID: V_ID },
   })
     .then(function (data) {
       return data;
@@ -59,18 +63,22 @@ controllers.get = async (req, res) => {
 /* EDITAR --------------------------------------------------- */
 controllers.update = async (req, res) => {
   // parameter get id
-  const { idpack } = req.params;
+  const { V_ID } = req.params;
   // parameter POST
-  const { idtipo, nome, preco } = req.body;
+  const { Recompensa_ID, PontosInteresse_ID, V_titulo,V_Descricao,V_Custo,V_QRCode,V_Validade} = req.body;
   // Update data
-  const data = await packs.update(
+  const data = await vouchers.update(
     {
-      idtipo: idtipo,
-      nome: nome,
-      preco: preco,
+      Recompensa_ID: Recompensa_ID,
+      PontosInteresse_ID: PontosInteresse_ID,
+      V_titulo: V_titulo,
+      V_Descricao: V_Descricao,
+      V_Custo: V_Custo,
+      V_QRCode: V_QRCode,
+      V_Validade: V_Validade,
     },
     {
-      where: { idpack: idpack },
+      where: { V_ID: V_ID },
     }
   )
     .then(function (data) {
@@ -84,21 +92,21 @@ controllers.update = async (req, res) => {
 
 controllers.delete = async (req, res) => {
   // parâmetros por post
-  const { idpack } = req.params;
+  const { V_ID } = req.params;
   // delete por sequelize
-  const del = await packs.destroy({
-    where: { idpack: idpack }
+  const del = await vouchers.destroy({
+    where: { V_ID: V_ID }
   })
   res.json({ success: true, deleted: del, message: "Deleted successful" });
 }
 
-//Filtro para packs frontend
+//Filtro para vouchers frontend
 controllers.listMarktingDigital = async (req, res) => {
   const data = await sequelize
   .query(
-    `SELECT * FROM packs where idtipo = 1 `,
+    `SELECT * FROM vouchers where idtipo = 1 `,
     {
-      type: packs.SELECT,
+      type: vouchers.SELECT,
     }
   )
   .then(function (data) {
@@ -113,9 +121,9 @@ res.json({ success: true, data: data[0] });
 controllers.listDesignGrafico = async (req, res) => {
   const data = await sequelize
   .query(
-    `SELECT * FROM packs where idtipo = 2 `,
+    `SELECT * FROM vouchers where idtipo = 2 `,
     {
-      type: packs.SELECT,
+      type: vouchers.SELECT,
     }
   )
   .then(function (data) {
@@ -130,9 +138,9 @@ res.json({ success: true, data: data[0] });
 controllers.listWebsitesELojasOnline = async (req, res) => {
   const data = await sequelize
   .query(
-    `SELECT * FROM packs where idtipo = 3 `,
+    `SELECT * FROM vouchers where idtipo = 3 `,
     {
-      type: packs.SELECT,
+      type: vouchers.SELECT,
     }
   )
   .then(function (data) {
@@ -147,9 +155,9 @@ res.json({ success: true, data: data[0] });
 controllers.listComunicacaoEConsultoria = async (req, res) => {
   const data = await sequelize
   .query(
-    `SELECT * FROM packs where idtipo = 4 `,
+    `SELECT * FROM vouchers where idtipo = 4 `,
     {
-      type: packs.SELECT,
+      type: vouchers.SELECT,
     }
   )
   .then(function (data) {
