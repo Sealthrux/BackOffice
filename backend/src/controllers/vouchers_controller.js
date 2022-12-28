@@ -17,7 +17,7 @@ controllers.list = async (req, res) => {
 /* REGISTAR ---------------------- */
 controllers.create = async (req, res) => {
   // data
-  const { idtipo, nome, preco } =
+  const { Recompensa_ID, PontosInteresse_ID, V_titulo,V_Descricao,V_Custo,V_QRCode,V_Validade } =
     req.body;
   // create
   const data = await vouchers
@@ -99,75 +99,6 @@ controllers.delete = async (req, res) => {
   })
   res.json({ success: true, deleted: del, message: "Deleted successful" });
 }
-
-//Filtro para vouchers frontend
-controllers.listMarktingDigital = async (req, res) => {
-  const data = await sequelize
-  .query(
-    `SELECT * FROM vouchers where idtipo = 1 `,
-    {
-      type: vouchers.SELECT,
-    }
-  )
-  .then(function (data) {
-    return data;
-  })
-  .catch((error) => {
-    return error;
-  });
-res.json({ success: true, data: data[0] });
-};
-
-controllers.listDesignGrafico = async (req, res) => {
-  const data = await sequelize
-  .query(
-    `SELECT * FROM vouchers where idtipo = 2 `,
-    {
-      type: vouchers.SELECT,
-    }
-  )
-  .then(function (data) {
-    return data;
-  })
-  .catch((error) => {
-    return error;
-  });
-res.json({ success: true, data: data[0] });
-};
-
-controllers.listWebsitesELojasOnline = async (req, res) => {
-  const data = await sequelize
-  .query(
-    `SELECT * FROM vouchers where idtipo = 3 `,
-    {
-      type: vouchers.SELECT,
-    }
-  )
-  .then(function (data) {
-    return data;
-  })
-  .catch((error) => {
-    return error;
-  });
-res.json({ success: true, data: data[0] });
-};
-
-controllers.listComunicacaoEConsultoria = async (req, res) => {
-  const data = await sequelize
-  .query(
-    `SELECT * FROM vouchers where idtipo = 4 `,
-    {
-      type: vouchers.SELECT,
-    }
-  )
-  .then(function (data) {
-    return data;
-  })
-  .catch((error) => {
-    return error;
-  });
-res.json({ success: true, data: data[0] });
-};
 
 
 module.exports = controllers;
