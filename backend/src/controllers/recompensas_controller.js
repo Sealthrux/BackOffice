@@ -1,10 +1,10 @@
-const packs = require("../models/packs_model");
+const recompensas = require("../models/recompensas_model");
 var sequelize = require("../models/database");
 var controllers = {};
 sequelize.sync();
 
 controllers.list = async (req, res) => {
-  const data = await packs.findAll()
+  const data = await recompensas.findAll()
     .then(function (data) {
       return data;
     })
@@ -17,14 +17,13 @@ controllers.list = async (req, res) => {
 /* REGISTAR ---------------------- */
 controllers.create = async (req, res) => {
   // data
-  const { idtipo, nome, preco } =
+  const { Rec_Desc, V_titulo} =
     req.body;
   // create
-  const data = await packs
+  const data = await recompensas
     .create({
-      idtipo: idtipo,
-      nome: nome,
-      preco: preco,
+      Rec_Desc: Rec_Desc,
+      V_titulo: V_titulo,
     })
     .then(function (data) {
       return data;
@@ -43,9 +42,9 @@ controllers.create = async (req, res) => {
 
 /* BUSCAR para EDITAR */
 controllers.get = async (req, res) => {
-  const {idpack} = req.params;
-  const data = await packs.findOne({
-    where: { idpack: idpack },
+  const {RecompeRecompensa_ID} = req.params;
+  const data = await recompensas.findOne({
+    where: {Recompensa_ID:Recompensa_ID },
   })
     .then(function (data) {
       return data;
@@ -59,18 +58,18 @@ controllers.get = async (req, res) => {
 /* EDITAR --------------------------------------------------- */
 controllers.update = async (req, res) => {
   // parameter get id
-  const { idpack } = req.params;
+  const {Recompensa_ID } = req.params;
   // parameter POST
-  const { idtipo, nome, preco } = req.body;
+  const { Rec_Desc, V_titulo} = req.body;
   // Update data
-  const data = await packs.update(
+  const data = await recompensas.update(
     {
-      idtipo: idtipo,
-      nome: nome,
-      preco: preco,
+      Recompensa_ID: Recompensa_ID,
+      Rec_Desc: Rec_Desc,
+      V_titulo: V_titulo,
     },
     {
-      where: { idpack: idpack },
+      where: {Recompensa_ID:Recompensa_ID },
     }
   )
     .then(function (data) {
@@ -84,82 +83,13 @@ controllers.update = async (req, res) => {
 
 controllers.delete = async (req, res) => {
   // parâmetros por post
-  const { idpack } = req.params;
+  const {Recompensa_ID } = req.params;
   // delete por sequelize
-  const del = await packs.destroy({
-    where: { idpack: idpack }
+  const del = await recompensas.destroy({
+    where: {Recompensa_ID:Recompensa_ID }
   })
   res.json({ success: true, deleted: del, message: "Deleted successful" });
 }
-
-//Filtro para packs frontend
-controllers.listMarktingDigital = async (req, res) => {
-  const data = await sequelize
-  .query(
-    `SELECT * FROM packs where idtipo = 1 `,
-    {
-      type: packs.SELECT,
-    }
-  )
-  .then(function (data) {
-    return data;
-  })
-  .catch((error) => {
-    return error;
-  });
-res.json({ success: true, data: data[0] });
-};
-
-controllers.listDesignGrafico = async (req, res) => {
-  const data = await sequelize
-  .query(
-    `SELECT * FROM packs where idtipo = 2 `,
-    {
-      type: packs.SELECT,
-    }
-  )
-  .then(function (data) {
-    return data;
-  })
-  .catch((error) => {
-    return error;
-  });
-res.json({ success: true, data: data[0] });
-};
-
-controllers.listWebsitesELojasOnline = async (req, res) => {
-  const data = await sequelize
-  .query(
-    `SELECT * FROM packs where idtipo = 3 `,
-    {
-      type: packs.SELECT,
-    }
-  )
-  .then(function (data) {
-    return data;
-  })
-  .catch((error) => {
-    return error;
-  });
-res.json({ success: true, data: data[0] });
-};
-
-controllers.listComunicacaoEConsultoria = async (req, res) => {
-  const data = await sequelize
-  .query(
-    `SELECT * FROM packs where idtipo = 4 `,
-    {
-      type: packs.SELECT,
-    }
-  )
-  .then(function (data) {
-    return data;
-  })
-  .catch((error) => {
-    return error;
-  });
-res.json({ success: true, data: data[0] });
-};
 
 
 module.exports = controllers;

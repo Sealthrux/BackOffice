@@ -1,20 +1,17 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 //importer os controladores
-const packsController = require('../controllers/packs_controller');
-router.get('/list', packsController.list);
-router.post('/create', packsController.create);
-router.get('/get/:idpack', packsController.get);
-router.put('/update/:idpack', packsController.update);
-router.delete('/delete/:idpack', packsController.delete);
-router.get('/save', (req, res) => {
-  res.json({ status: 'Packs Saved' });
+const recompensasController = require("../controllers/recompensas_controller");
+router.get("/list", recompensasController.list);
+router.post("/create", recompensasController.create);
+router.get("/get/:idrecompensas", recompensasController.get);
+router.put("/update/:idvoucher", recompensasController.update);
+router.delete("/delete/:idvoucher", recompensasController.delete);
+router.get("/save", (req, res) => {
+  res.json({ status: "recompensas Saved" });
 });
 
-router.get('/listMarktingDigital', packsController.listMarktingDigital);
-router.get('/listDesignGrafico', packsController.listDesignGrafico);
-router.get('/listWebsitesELojasOnline', packsController.listWebsitesELojasOnline);
-router.get('/listComunicacaoEConsultoria', packsController.listComunicacaoEConsultoria);
+router.get("/listrecompensas", recompensasController.listrecompensas);
 
 module.exports = router;
